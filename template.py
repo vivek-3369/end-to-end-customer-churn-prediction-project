@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 list_of_files = [
     "src/__init__.py",
     "src/components/__init__.py",
-    "src/components/data_ingestions.py",
+    "src/components/data_ingestion.py",
     "src/components/data_transformation.py",
     "src/components/model_trainer.py",
     "src/components/model_evaluation.py",
@@ -20,7 +20,8 @@ list_of_files = [
     "app.py",
     "Dockerfile",
     "requirements.txt",
-    "setup.py"
+    "setup.py",
+    "templates/index.html"
 ]
 
 for file_path in list_of_files :
