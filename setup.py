@@ -1,11 +1,23 @@
-from setuptools import setup,find_packages
-from typing import List 
+from setuptools import setup, find_packages
+from typing import List
 
-def get_requirements(file_path:str)->List[str]:
-    
-    with open(file_path,'r') as file_obj:
+
+HYPHEN_E_DOT = "-e ."
+
+
+def get_requirements(file_path: str) -> List[str]:
+
+    with open(file_path, "r") as file_obj:
         requirements = file_obj.readlines()
-        requirements = [req.replace("\n","") for req in requirements]
+        requirements = [req.replace("\n", "") for req in requirements]
+
+        # "-e ." is valid in requirements.txt for pip, but
+        # it is not a valid entry for install_requires in setup().
+        if HYPHEN_E_DOT in requirements:
+            requirements.remove(HYPHEN_E_DOT)
+
+        # Filter out any empty strings that may appear
+        requirements = [req for req in requirements if req]
 
         return requirements
     

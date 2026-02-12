@@ -1,8 +1,8 @@
-## End to End Customer Churn Prediction Project
+### End to End Customer Churn Prediction Project
 
 
 # How to run?
-### Steps:
+## Steps:
 
 Clone the repository
 
