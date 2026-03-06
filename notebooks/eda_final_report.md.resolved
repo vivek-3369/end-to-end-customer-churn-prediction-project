@@ -1,0 +1,44 @@
+# Exploratory Data Analysis (EDA) Final Report
+
+This report summarizes the key findings from the EDA process conducted on the Telecom Customer Churn dataset ([EDA.ipynb](file:///c:/Users/USER/Desktop/Telecom%20Customer%20Churn%20Prediction/notebooks/EDA.ipynb)).
+
+## 1. Data Characteristics & Quality
+*   **Size:** 7,043 rows and 21 columns.
+*   **Target Variable:** `Churn`. The dataset is imbalanced, with 73.5% non-churners and 26.5% churners.
+*   **Data Cleaning:** 11 missing values were found in the `TotalCharges` column. Since these represented < 0.2% of the data, the rows were dropped, ensuring clean data for modeling. The `customerID` column was successfully dropped as it holds no predictive value.
+
+## 2. Univariate Insights (Individual Features)
+*   **Demographics:** The customer base is evenly split by gender. The vast majority do not have dependents (70%) and are not Senior Citizens (84%).
+*   **Tenure:** Usage is highly polarized. There is an enormous spike of very new customers (0-10 months) and a second large spike of extremely loyal customers (~72 months).
+*   **Services:** Most customers have Phone Service. For Internet Service, Fiber Optic is the most common, followed by DSL. Interestingly, many customers opt *out* of add-on services like Online Security, Backup, Device Protection, and Tech Support.
+*   **Contracts & Billing:** Most customers are on Month-to-Month contracts. Paperless billing is preferred, and Electronic Check is the dominant payment method.
+*   **Charges:** Monthly charges show three distinct peaks, roughly corresponding to low-tier (basic phone), mid-tier (internet), and high-tier (premium bundles) plans. Total charges are skewed low, dominated by the influx of newer customers.
+
+## 3. Bivariate Insights (Features vs. Churn)
+
+This section highlights the most critical risk factors driving customer churn.
+
+### High Risk Factors (Features driving Churn)
+*   **Contracts:** **Month-to-month contracts** are the single biggest driver of churn. Customers on 1-year or 2-year contracts are highly unlikely to leave.
+*   **Service Tier:** Customers with **Fiber Optic internet** have significantly higher churn rates compared to DSL or No Internet users.
+*   **Add-On Services:** Customers *without* Internet Add-ons (namely **Tech Support** and **Online Security**) are much more likely to churn.
+*   **Payment Methods:** Users paying via **Electronic Check** have the highest churn rates among all payment methods.
+*   **Demographics:** **Senior Citizens** churn at substantially higher rates than non-seniors. Customers *without* partners or dependents also churn more.
+*   **Financials:** Churners generally have **higher Monthly Charges** but **lower Total Charges** (because they leave early). 
+
+### Low Risk Factors (Features indicating Loyalty)
+*   **Tenure:** As tenure increases, churn probability drops dramatically. Long-term customers rarely leave.
+*   **Contracts:** Long-term contracts (1-year and especially 2-year).
+*   **Services:** Customers utilizing Add-On services (Tech Support, Online Security, etc.) stay longer.
+
+### Inconclusive / Low Impact Factors
+*   **Gender:** No significant difference in churn rates between males and females.
+*   **PhoneService & MultipleLines:** These services barely impact whether a customer stays or leaves.
+
+---
+
+**Next Steps & Recommendations:**
+1.  **Retention Focus:** Target Month-to-Month and Fiber Optic customers immediately. 
+2.  **Product Bundling:** Incentivize the adoption of Tech Support and Online Security, as these are strong "sticky" features.
+3.  **Missing Plots:** Proceed with checking interactions between independent variables (e.g., Multicollinearity checks) as outlined in [missing_plots.md](file:///C:/Users/USER/.gemini/antigravity/brain/f6500bf0-d6bd-40b8-a8c1-adae792a6648/missing_plots.md) before starting model building.
+
