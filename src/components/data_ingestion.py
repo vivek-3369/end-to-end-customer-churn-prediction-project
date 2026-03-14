@@ -26,13 +26,14 @@ class DataIngestion:
 
         try :
             df = pd.read_csv(os.path.join("notebooks/data","churn-data.csv"))
+            logging.info("Data Ingestion Started")
             logging.info("Reading data from a CSV File")
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_path), exist_ok=True)  # Creates artifacts folder in the directory
 
             df.to_csv(self.ingestion_config.raw_path, header=True, index=False)
 
-            train_data, test_data = train_test_split(df, test_size=0.2, random_state=1)
+            train_data, test_data = train_test_split(df, test_size=0.3, random_state=42)
             logging.info("Splitted the dataset into train and test")
 
             train_data.to_csv(self.ingestion_config.train_path, header=True, index=False)
