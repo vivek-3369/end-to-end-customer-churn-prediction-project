@@ -29,5 +29,11 @@ pip install -r requirements.txt
 ### Step-3 : Run the application
 
 ```bash
-python app.py
+streamlit run app.py
+```
+
+**If NoModuleError raises then execute this command:**
+
+```bash
+pip install -e .
 ```
