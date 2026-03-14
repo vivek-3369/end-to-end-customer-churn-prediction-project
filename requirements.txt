@@ -7,4 +7,4 @@ scipy
 scikit-learn
 dvc
 imbalanced-learn
-flask
+streamlit
