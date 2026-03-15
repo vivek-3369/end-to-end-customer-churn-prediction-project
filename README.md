@@ -84,7 +84,7 @@ While the current model functions very well, this project can be expanded in the
 * **Cloud Database Integration:** Connect the Streamlit application to a cloud database (like MongoDB or AWS RDS) to log the predictions and actual outcomes, creating a feedback loop for continuous model improvement.
 * **FastAPI Backend:** Separate the Streamlit frontend from the predictive modeling completely by wrapping the Prediction Pipeline inside a dedicated REST API using FastAPI.
 
----gi
+---
 
 ## 💻 How to Run the Project Locally
 
