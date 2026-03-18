@@ -7,7 +7,7 @@ from src.exception import CustomException
 from src.logger import logging
 from src.utils import load_obj
 
-from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score, roc_curve, auc
 
 @dataclass
 class ModelEvaluationConfig:
@@ -28,21 +28,22 @@ class ModelEvaluation:
 
             logging.info("Predicting on test data")
             prediction = model.predict(X_test)
+            prediction_prob = model.predict_proba(X_test)[:, 1]
 
             acc = accuracy_score(y_test, prediction)
             mat = confusion_matrix(y_test, prediction).tolist() # converting array to list for JSON serialization
             precision = precision_score(y_test, prediction)
             recall = recall_score(y_test, prediction)
             f1 = f1_score(y_test, prediction)
-            roc_auc = roc_auc_score(y_test, prediction)
+            roc_auc = roc_auc_score(y_test, prediction_prob)
 
             metrics = {
-                "Accuracy": acc,
-                "Precision": precision,
-                "Recall": recall,
-                "F1_Score": f1,
-                "ROC Score": roc_auc,
-                "Confusion Matrix": mat
+                "Accuracy": round(acc, 2),
+                "Precision": round(precision, 2),
+                "Recall": round(recall, 2),
+                "F1_Score": round(f1, 2),
+                "ROC Score": round(roc_auc, 2),
+                "Confusion Matrix": mat,
             }
 
             

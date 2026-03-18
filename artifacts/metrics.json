@@ -1,9 +1,9 @@
 {
-    "Accuracy": 0.7578199052132701,
-    "Precision": 0.535593220338983,
-    "Recall": 0.8257839721254355,
-    "F1_Score": 0.6497601096641535,
-    "ROC Score": 0.7791029235627178,
+    "Accuracy": 0.76,
+    "Precision": 0.54,
+    "Recall": 0.83,
+    "F1_Score": 0.65,
+    "ROC Score": 0.86,
     "Confusion Matrix": [
         [
             1125,

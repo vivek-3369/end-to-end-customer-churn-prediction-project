@@ -34,11 +34,11 @@ def evaluate_models(x_train, x_test, y_train, y_test, models) :
             model = list(models.values())[i]
             model.fit(x_train, y_train)
 
-            y_pred = model.predict(x_test)
+            y_pred = model.predict_proba(x_test)[:, 1]
 
-            roc_score = roc_auc_score(y_test, y_pred)
+            model_roc_auc_score = roc_auc_score(y_test, y_pred)
 
-            report[list(models.keys())[i]] = roc_score
+            report[list(models.keys())[i]] = model_roc_auc_score
 
         return report
 
