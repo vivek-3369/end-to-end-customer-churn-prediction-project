@@ -42,7 +42,7 @@ class ModelEvaluation:
                 "Precision": round(precision, 2),
                 "Recall": round(recall, 2),
                 "F1_Score": round(f1, 2),
-                "ROC Score": round(roc_auc, 2),
+                "ROC-AUC Score": round(roc_auc, 2),
                 "Confusion Matrix": mat,
             }
 
