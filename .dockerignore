@@ -1,0 +1,25 @@
+# Virtual Environments
+.venv/
+venv/
+churn/
+
+# Python Cache & Build Files
+__pycache__/
+*.pyc
+*.egg-info/
+customer_churn_prediction_model.egg-info/
+
+# IDE & Git
+.git/
+.gitignore
+.vscode/
+
+# Notebooks (Not needed for Streamlit app)
+notebooks/
+*.ipynb
+
+# Logs
+logs/
+
+# Environment & Secrets
+.env
