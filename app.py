@@ -213,7 +213,7 @@ with tab3 :
     ax.set_title("Model Evaluation Metrics")
     ax.set_xticklabels(labels=metrics_labels, fontsize=8)
     plt.tight_layout()
-    st.pyplot(fig)
+    st.pyplot(fig, clear_figure=True)
     plt.close()
     
     st.markdown("### What do these metric means ?")
