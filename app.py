@@ -246,4 +246,4 @@ with tab4 :
     **High Monthly Charges:** There is a strong positive correlation between high monthly charges and customer churn, particularly for those lacking bundled services like Tech Support or Online Security.
 
     **Senior Citizens & Vulnerability:** Senior citizens, particularly those without partners or dependents, are noticeably more vulnerable to churning.
-    """)
+    """)    

@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 EXPOSE 8501
 
 # 6. Command to the run the app in the container
-CMD ["streamlit", "run", "app.py"]
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.headless=true", "--server.enableCORS=false", "--server.enableXsrfProtection=false"]
